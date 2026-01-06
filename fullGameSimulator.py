@@ -4,6 +4,7 @@ import random
 
 def deck_composition(n):
     game_state = {
+        #"n":1,
         "deck": [0] * 13,
         "cards": 52 * 8,
         "p1": 0,
@@ -18,9 +19,27 @@ def play(gs):
         deal(gs) 
 
 def deal(gs):
-    value = pick(gs) +1
-    gs["cards"] -=1
-    if value >= 10: value = 0
+    for i in range(2):
+        value = pick(gs) +1
+        gs["cards"] -=1
+        if value >= 10: value = 0
+        gs["p1"] += value
+
+        value = pick(gs) +1
+        gs["cards"] -=1
+        if value >= 10: value = 0
+        gs["p2"] += value
+
+        value = pick(gs) +1
+        gs["cards"] -=1
+        if value >= 10: value = 0
+        gs["banco"] += value
+
+    gs["p1"] = gs["p1"]%10
+    gs["p2"] = gs["p2"]%10
+    gs["banco"] = gs["banco"]%10
+    #print(gs)
+    #gs["n"] += 1
     
     
 def pick(gs):
