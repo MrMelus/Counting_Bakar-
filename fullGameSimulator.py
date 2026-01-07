@@ -72,8 +72,17 @@ def pick(gs):
     gs["cards"] -= 1
     return value
 
-#def banco_playstyle(gs):
-    #if gs["p1"] <= 4 and gs["p2"] <= 4 and gs["banco"] <=3:
+def winners(gs):
+    if gs["p1"] > gs["banco"] and gs["p2"] > gs["banco"]: print("p1 and p2 win")
+
+    elif gs["p1"] > gs["banco"] and gs["p2"] < gs["banco"]: 
+        print("p1 wins", end=" ")
+        if gs["banco"] == gs["p2"]: print("p2 come")
+    elif gs["p1"] > gs["banco"] and gs["p2"] < gs["banco"]:
+        print("p2 wins", end=" ")
+        if gs["banco"] == gs["p2"]: print("p1 come")
+    elif gs["p1"] < gs["banco"] and gs["p2"] < gs["banco"]: print("banco wins")
+    
 
 def main():
     n = int(input("Quante volte vuoi simulare?\n"))
