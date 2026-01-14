@@ -38,8 +38,8 @@ def play(gs):
         gs["p2"] = 0
         gs["banco"] = 0
         gs["betValue"] = bet__decider(gs)
-        deal(gs)
         gs["oldBalance"] = gs["balance"]
+        deal(gs)
         #print(gs["n"],") ",end="")
         winners(gs)
         gs["n"] += 1
