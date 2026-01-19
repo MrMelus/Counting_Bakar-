@@ -14,7 +14,8 @@ def deck_composition(n,nome_strategia):
         "p2": 0,
         "banco": 0,
         "betValue": 0,
-        "balance" : 0
+        "balance" : 0,
+        "oldBalance": 0
     }
     for i in range(n):
         game_state["cards"] = 52*8
@@ -36,6 +37,7 @@ def play(gs):
         gs["p1"] = 0
         gs["p2"] = 0
         gs["banco"] = 0
+        gs["oldBalance"] = gs["balance"]
         gs["betValue"] = bet_decider(gs)
         deal(gs) 
         #print(gs["n"],") ",end="")
